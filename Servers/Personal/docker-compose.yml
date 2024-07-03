@@ -1,0 +1,18 @@
+services:
+  minecraft-server-2:
+    build:
+      context: ../../
+      dockerfile: Base/dockercraft-forge-1.21.dockerfile
+    container_name: minecraft-server-2
+    ports:
+      - "25566:25565"
+    environment:
+      - MOTD=Docker 2 Test
+      - DIFFICULTY=easy
+      - MAX_PLAYERS=10
+      - VIEW_DISTANCE=12
+    volumes:
+      - minecraft-data-server-2:/minecraft
+
+volumes:
+  minecraft-data-server-2:
